@@ -30,8 +30,7 @@ public class ExcelFormatterTest {
         }
         Sheet sheet = workbook.getSheet("Sheet1");
         
-        ExcelFormatter target = new ExcelFormatter();
-        target.replaceFormula(sheet, "B31", "'01_0表紙'!t28");
+        ExcelFormatter.replaceFormula(sheet, "B31", "'01_0表紙'!t28");
         
         CellReference reference = new CellReference("B31");
         Row row = sheet.getRow(reference.getRow());

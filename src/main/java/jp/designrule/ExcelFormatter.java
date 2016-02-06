@@ -29,7 +29,7 @@ public class ExcelFormatter {
     Sheet sheet = workbook.getSheet("Sheet1");
     
     //B31の参照先を書き換え
-    this.replaceFormula(sheet, "B31", "'01_0表紙'!t28");
+    replaceFormula(sheet, "B31", "'01_0表紙'!t28");
 
     //上書き保存
     try (FileOutputStream fos = new FileOutputStream(file)) {
@@ -40,7 +40,7 @@ public class ExcelFormatter {
     }
   }
 
-  public void replaceFormula(Sheet sheet, String cellName, String replacement) {
+  public static void replaceFormula(Sheet sheet, String cellName, String replacement) {
     CellReference reference = new CellReference(cellName); // A1形式
     Row row = sheet.getRow(reference.getRow());
     Cell cell = row.getCell(reference.getCol());
