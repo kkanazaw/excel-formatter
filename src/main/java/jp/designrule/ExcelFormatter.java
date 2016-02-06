@@ -29,11 +29,8 @@ public class ExcelFormatter {
     Sheet sheet = workbook.getSheet("Sheet1");
     
     //B31の参照先を書き換え
-    CellReference reference = new CellReference("B31"); // A1形式
-    Row row = sheet.getRow(reference.getRow());
-    Cell cell = row.getCell(reference.getCol());
-    cell.setCellFormula("'01_0表紙'!t28");
-    
+    this.replaceFormula(sheet, "B31", "'01_0表紙'!t28");
+
     //上書き保存
     try (FileOutputStream fos = new FileOutputStream(file)) {
         workbook.write(fos);
