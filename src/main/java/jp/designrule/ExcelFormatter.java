@@ -18,25 +18,28 @@ public class ExcelFormatter {
 
   public static void main(String... args) throws IOException, InvalidFormatException {
     File file = new File(args[0]);
-    InputStream is = new FileInputStream(file);
-    Workbook workbook = WorkbookFactory.create(is);
-    is.close();
+    Workbook workbook = null;
+    try(InputStream is = new FileInputStream(file)) {
+        workbook = WorkbookFactory.create(is);
+      }catch(Exception e) {
+      e.printStackTrace();
+      System.exit(-1);
+    }
 
     Sheet sheet = workbook.getSheet("Sheet1");
     
     //B31の参照先を書き換え
     CellReference reference = new CellReference("B31"); // A1形式
     Row row = sheet.getRow(reference.getRow());
-    if (row != null) {
-      Cell cell = row.getCell(reference.getCol());
-      if (cell != null) {
-        cell.setCellFormula("'01_0表紙'!t28");
-      }
-    }
+    Cell cell = row.getCell(reference.getCol());
+    cell.setCellFormula("'01_0表紙'!t28");
     
     //上書き保存
     try (FileOutputStream fos = new FileOutputStream(file)) {
         workbook.write(fos);
-      }
+      }catch(Exception e) {
+      e.printStackTrace();
+      System.exit(-1);      
+    }
   }
 }
