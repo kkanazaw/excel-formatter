@@ -42,4 +42,12 @@ public class ExcelFormatter {
       System.exit(-1);      
     }
   }
+
+  public void replaceFormula(Sheet sheet, String cellName, String replacement) {
+    CellReference reference = new CellReference(cellName); // A1形式
+    Row row = sheet.getRow(reference.getRow());
+    Cell cell = row.getCell(reference.getCol());
+    cell.setCellFormula(replacement);
+  }
+  
 }
