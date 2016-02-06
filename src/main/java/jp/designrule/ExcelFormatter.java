@@ -26,7 +26,7 @@ public class ExcelFormatter {
       System.exit(-1);
     }
 
-    Sheet sheet = workbook.getSheet("Sheet1");
+    Sheet sheet = workbook.getSheet("readonly");
     
     //B31の参照先を書き換え
     replaceFormula(sheet, "B31", "'01_0表紙'!t28");

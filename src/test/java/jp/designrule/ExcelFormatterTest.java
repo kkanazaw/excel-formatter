@@ -28,7 +28,7 @@ public class ExcelFormatterTest {
           }catch(Exception e) {
           e.printStackTrace();
         }
-        Sheet sheet = workbook.getSheet("Sheet1");
+        Sheet sheet = workbook.getSheet("readonly");
         
         ExcelFormatter.replaceFormula(sheet, "B31", "'01_0表紙'!t28");
         
