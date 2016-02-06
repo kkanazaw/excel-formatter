@@ -18,8 +18,14 @@ $ gradle build
 
 ```
 # 1ファイルの場合
-$ java -jar  build/libs/jp.designrule.ExcelFormatter.jar {}
+$ java -jar  build/libs/excel-formatter-1.0.0.jar ファイルパス
 
-# sample以下のファイルの場合
-$ find sample -name *.xlsx | xargs -I{} java -jar  build/libs/jp.designrule.ExcelFormatter.jar {}
+# sample以下の複数ファイルの場合
+$ find sample -name *.xlsx | xargs -I{} java -jar  build/libs/excel-formatter-1.0.0.jar {}
 ```
+
+== 参考資料
+
+- (POIメモ(Hishidama's Apache POI Memo))[http://www.ne.jp/asahi/hishidama/home/tech/apache/poi/]
+- (成済みのシートを取得 - シート - Apache POIでExcelを操作)[http://www.javadrive.jp/poi/sheet/index2.html]
+- (ubuntuにgradleをインストールする方法)[http://qiita.com/htano/items/31b042a264c3f2983b12]
