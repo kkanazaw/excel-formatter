@@ -1,5 +1,7 @@
 # excel-formatter
 
+[![Build Status](https://travis-ci.org/malmrashede/excel-formatter.svg?branch=master)](https://travis-ci.org/malmrashede/excel-formatter)
+
 特定のセルの参照先を変更して上書き保存するスクリプト
 （上書きするので、実行前に元ファイルバックアップをおねがいします。）
 
