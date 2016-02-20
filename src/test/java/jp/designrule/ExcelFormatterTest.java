@@ -19,14 +19,15 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import jp.designrule.ExcelFormatter;
 
 public class ExcelFormatterTest {
-      @Test
-      public void testReplaceFormula() {
+	
+	@Test
+	public void testReplaceFormula() {
         File file = new File("sample/sample0.xlsx");
         Workbook workbook = null;
         try(InputStream is = new FileInputStream(file)) {
-            workbook = WorkbookFactory.create(is);
-          }catch(Exception e) {
-          e.printStackTrace();
+				workbook = WorkbookFactory.create(is);
+			}catch(Exception e) {
+			e.printStackTrace();
         }
         Sheet sheet = workbook.getSheet("readonly");
         
@@ -34,7 +35,8 @@ public class ExcelFormatterTest {
         
         CellReference reference = new CellReference("B31");
         Row row = sheet.getRow(reference.getRow());
-        Cell cell = row.getCell(reference.getCol());        
+        Cell cell = row.getCell(reference.getCol());
+		
         assertEquals("'01_0表紙'!t28", cell.getCellFormula());
-      }
+	}
 }

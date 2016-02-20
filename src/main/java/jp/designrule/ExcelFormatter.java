@@ -30,6 +30,8 @@ public class ExcelFormatter {
     
     //B31の参照先を書き換え
     replaceFormula(sheet, "B31", "'01_0表紙'!t28");
+    replaceFormula(sheet, "B15", "'01_0表紙'!y10");
+    replaceFormula(sheet, "B16", "'01_0表紙'!y11");
 
     //上書き保存
     try (FileOutputStream fos = new FileOutputStream(file)) {
