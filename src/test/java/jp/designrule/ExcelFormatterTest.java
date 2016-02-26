@@ -36,7 +36,6 @@ public class ExcelFormatterTest {
         CellReference reference = new CellReference("B31");
         Row row = sheet.getRow(reference.getRow());
         Cell cell = row.getCell(reference.getCol());
-		
-        assertEquals("'01_0表紙'!t28", cell.getCellFormula());
+        assertEquals("正しい参照先", cell.getRichStringCellValue().getString());
 	}
 }
