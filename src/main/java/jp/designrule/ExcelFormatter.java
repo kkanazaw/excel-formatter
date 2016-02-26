@@ -8,7 +8,9 @@ import java.io.FileInputStream;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.util.CellReference;
+import org.apache.poi.ss.usermodel.FormulaEvaluator;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellValue;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -47,6 +49,11 @@ public class ExcelFormatter {
     Row row = sheet.getRow(reference.getRow());
     Cell cell = row.getCell(reference.getCol());
     cell.setCellFormula(replacement);
+
+	// cellを再計算する
+	Workbook book = sheet.getWorkbook();
+	FormulaEvaluator evaluator = book.getCreationHelper().createFormulaEvaluator();
+	CellValue value = evaluator.evaluate(cell);
   }
   
 }
