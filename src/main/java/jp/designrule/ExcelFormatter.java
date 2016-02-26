@@ -53,7 +53,7 @@ public class ExcelFormatter {
 	// cellを再計算する
 	Workbook book = sheet.getWorkbook();
 	FormulaEvaluator evaluator = book.getCreationHelper().createFormulaEvaluator();
-	CellValue value = evaluator.evaluate(cell);
+	evaluator.evaluateInCell(cell);
   }
   
 }
